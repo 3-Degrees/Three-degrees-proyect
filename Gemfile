@@ -53,3 +53,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'figaro'
 
 
+# Devise
+gem 'devise'
+
+# Carrierwave
+gem 'carrierwave'
+
+# Bcrypt
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+# Jquery
+gem 'jquery-rails'
+
+# Kaminari
+gem 'kaminari'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0'
