@@ -48,3 +48,21 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Devise
+gem 'devise'
+
+# Carrierware
+gem 'carrierware'
+
+# Bcrypt
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+# Jquery
+gem 'jquery-rails'
+
+# Kaminari
+gem 'kaminari'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0'
