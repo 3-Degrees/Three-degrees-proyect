@@ -4,4 +4,8 @@ class WelcomeController < ApplicationController
 
   def about
   end
+
+  def organizations
+    @organizations= Organization.all
+  end
 end
