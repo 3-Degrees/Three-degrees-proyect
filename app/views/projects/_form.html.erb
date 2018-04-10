@@ -12,33 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :titulo_del_proyecto %>
     <%= form.text_field :title, id: :project_title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :descripción_del_proyecto %>
     <%= form.text_area :description, id: :project_description %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :ubicación %>
     <%= form.text_field :location, id: :project_location %>
   </div>
 
   <div class="field">
-    <%= form.label :project_date %>
+    <%= form.label :fecha_del_proyecto %>
     <%= form.date_select :project_date, id: :project_project_date %>
   </div>
 
   <div class="field">
-    <%= form.label :deadline %>
+    <%= form.label :fecha_limite_de_inscripción %>
     <%= form.date_select :deadline, id: :project_deadline %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :project_image %>
+  <div class="form-group">
+      <strong>Añade el logo de tu organización:</strong>
+      <%= form.label :imagen %>
+      <%= f.file_field :image, id: :project_image%>
   </div>
 
   <div class="actions">

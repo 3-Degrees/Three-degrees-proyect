@@ -2,23 +2,22 @@
 
 <h1 class="display-4 text-center">Proyectos de voluntariado</h1>
 
-<div class="card">
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= project.location %></td>
-        <td><%= project.project_date %></td>
-        <td><%= project.deadline %></td>
-        <td><%= project.image %></td>
-        <% if organization_signed_in? %>
-          <td><%= link_to 'Show', project %></td>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-</div>
+
+<% @projects.each do |project| %>
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" <%= image_tag project.image.url if project.image.url %> alt="imagen del proyecto">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to project.title, project %></h5>
+        <p class="card-text"><%= project.description %></p>
+        <p class="card-text"><small><%= project.organization %></small></p>
+        <p class="card-text"><small class="text-muted"><%= project.location %></small></p>
+        <p class="card-text"><small class="text-muted"><%= project.project_date %></small></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <br>
 
 <% if organization_signed_in? %>
