@@ -1,21 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1 class="display-4 text-center">Proyectos de voluntariado</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Project date</th>
-      <th>Deadline</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="card">
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
@@ -24,14 +11,18 @@
         <td><%= project.project_date %></td>
         <td><%= project.deadline %></td>
         <td><%= project.image %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if organization_signed_in? %>
+          <td><%= link_to 'Show', project %></td>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
+</div>
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<% if organization_signed_in? %>
+  <%= link_to 'Nuevo proyecto', new_project_path %>
+<% else %>
+  <%= link_to 'Inicia sesión para crear un nuevo proyecto', new_organization_session_path %>
+<% end %>
