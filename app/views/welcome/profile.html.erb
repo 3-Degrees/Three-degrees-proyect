@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-5">
+    <%= image_tag @organization.avatar.url, alt: "Avatar de la organización" if @organization.avatar.url %>
+    </div>
+
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-left"><%= @organization.name %></h3>
+        <hr>
+        <%= @organization.mission %>
+    </div>
+</div>
+
+<br>
+
+<div class="row justify-content-center">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.934606373863!2d-4.4500744852998375!3d36.700109281028425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f77d4221ac11%3A0x38c10da5a7f61a50!2sEl+Torcal%2C+29003+M%C3%A1laga!5e0!3m2!1ses!2ses!4v1523375815376" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+<br>
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="lead text-center">Proyectos de <%= @organization.name %></h3>
+    </div>
+</div>
+
+
+<hr>
+<div class="row">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    
+    <div class="row align-items-center">
+        <div class="card-deck">
+            <% @projects.each do |project| %>
+                <div class="card" style="18-rem">
+                    <img class="card-img-top" <%= image_tag project.image.url, alt: "imagen del proyecto" if project.image.url %>
+                    <div class="card-body">
+                    <h5 class="card-title"><%= link_to project.title, project %></h5>
+                    <p class="card-text"><%= project.short_entry %>
+                    <p class="card-text"><small><%= link_to project.organization.name, perfil_organizacion_path(id: project.organization.id) %></small></p>
+                    <p class="card-text"><small class="text-muted"><%= project.location %></small></p>
+                    <p class="card-text"><small class="text-muted">Fecha del proyecto: <%= project.project_date %></small></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
+
+    <% if organization_signed_in? %>
+            
+        <td><%= link_to 'Edit', edit_organization_registration_path(@organization) %></td>
+            
+    <% end %>|
+    <%= link_to 'Back', organizaciones_path %>
+</div>

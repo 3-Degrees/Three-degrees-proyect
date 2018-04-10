@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+
   def index
   end
 
@@ -11,5 +12,9 @@ class WelcomeController < ApplicationController
 
   def profile
     @organization= Organization.find_by(params[:id])
+
+    @projects= Project.all
   end
+
+
 end
