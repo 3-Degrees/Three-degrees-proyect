@@ -8,4 +8,8 @@ class WelcomeController < ApplicationController
   def organizations
     @organizations= Organization.all
   end
+
+  def profile
+    @organization= Organization.find_by(params[:id])
+  end
 end
