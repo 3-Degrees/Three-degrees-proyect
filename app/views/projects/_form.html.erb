@@ -27,6 +27,21 @@
   </div>
 
   <div class="field">
+    <%= form.label :perfil_requerido_para_este_proyecto %>
+    <%= form.text_field :profile, id: :project_profile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dedicación_requerida_para_este_proyecto %>
+    <%= form.text_field :dedication, id: :project_dedication %>
+  </div>
+
+  <div class="field">
+    <%= form.label :número_de_plazas_disponibles %>
+    <%= form.text_field :places_number, id: :project_places_number %>
+  </div>
+
+  <div class="field">
     <%= form.label :fecha_del_proyecto %>
     <%= form.date_select :project_date, id: :project_project_date %>
   </div>

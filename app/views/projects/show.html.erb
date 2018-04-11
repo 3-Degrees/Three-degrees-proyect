@@ -1,40 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="row">
+    <div class="col-md-5">
+    <%= image_tag @project.image.url, alt: "Imagen del proyecto" if @project.image.url %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-left"><%= @project.title %></h3>
+        <hr>
+        <%= @project.description %>      
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Lugar: </strong><%= @project.location %>
+      </p>
+    </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @project.location %>
-</p>
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Perfil que buscamos para este proyecto: </strong><%= @project.profile %>
+      </p>
+    </div>
 
-<p>
-  <strong>Project date:</strong>
-  <%= @project.project_date %>
-</p>
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Dedicación que se necesita para este proyecto: </strong><%= @project.dedication %>
+      </p>
+    </div>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @project.deadline %>
-</p>
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Fecha del proyecto: </strong><%= @project.project_date %>
+      </p>
+    </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @project.image %>
-</p>
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Fecha límite para unirse al proyecto: </strong><%= @project.deadline %>
+      </p>
+    </div>
+
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Número de plazas: </strong><%= @project.places_number %>
+      </p>
+    </div>
+
+    <div class="col-md-10">
+      <p class="lead">
+        <strong>Número de solicitudes enviadas a este proyecto: </strong><%= @project.requests.count %>
+      </p>
+    </div>
+</div>
+
 
 <% if organization_signed_in? %>
   <td><%= link_to 'Edit', edit_project_path(@project) %></td>
   <td><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
-
+<br>
 <%= link_to 'Back', projects_path %>
 <br>
 <hr>
