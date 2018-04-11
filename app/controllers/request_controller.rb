@@ -9,6 +9,8 @@ class RequestController < ApplicationController
     @project = Project.find(params[:project_id])
 
 
-    Request.create(name: @name, age: @age, location: @location, email: @email, phone: @phone, reason: @reason, project: @project)
+    @request = Request.create(name: @name, age: @age, location: @location, email: @email, phone: @phone, reason: @reason, project: @project)
+
+    OrganizationMailer.request_email(@request).deliver_now
   end
 end

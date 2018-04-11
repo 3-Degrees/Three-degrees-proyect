@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
     belongs_to :organization
 
+    has_many :requests
+
      mount_uploader :image, ImageUploader
 
     def short_entry
