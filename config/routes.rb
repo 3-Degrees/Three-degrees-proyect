@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'solicitud_registrada' => 'request#save'
+  post 'request/save'
+
   resources :projects
   root 'welcome#index'
 
