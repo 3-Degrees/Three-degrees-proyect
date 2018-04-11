@@ -11,23 +11,25 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="float-right">   <!-- Para que el botón se coloque a la derecha -->
+    <nav class="navbar navbar-light" style="background-color: #c0e0f7;">
+        <a class="navbar-brand" href="http://localhost:3000">3 Degrees</a>
+
+          <div class="nav navbar-nav pull-xs-right">
             <% if organization_signed_in? %>
-              
-              <%= link_to "Edit profile", edit_organization_registration_path, class: "btn btn-primary" %> 
-              <%= link_to "Sign out", destroy_organization_session_path, method: :delete, class: "btn btn-danger" %>
-            <% else %>
-              <%= link_to "Acceder", new_organization_session_path, class: "btn btn-primary" %>
-              <%= link_to "Registrarse", new_organization_registration_path, class: "btn btn-secondary" %>
-            <% end %>
-        </div>
-	    </nav>
+                <form class="form-inline">
+                  <%= link_to "Edit profile", edit_organization_registration_path, class: "btn btn-outlineprimary" %> 
+                  <%= link_to "Sign out", destroy_organization_session_path, method: :delete, class: "btn btn-outline-danger" %>
+                </form>
+              <% else %>
+                <form class="form-inline">
+                  <%= link_to "Acceder", new_organization_session_path, class: "btn btn-outline-primary" %> 
+                  <%= link_to "Registrarse", new_organization_registration_path, class: "btn btn-outline-secondary" %>
+                </form>
+              <% end %>
+          </div>   
     </nav>
+
+
     <div class="container justify-content-center">
       <%= yield %>
     </div>
