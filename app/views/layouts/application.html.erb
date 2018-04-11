@@ -6,26 +6,33 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav class="navbar navbar-light" style="background-color: #c0e0f7;">
-        <a class="navbar-brand" href="http://localhost:3000">3 Degrees</a>
+        <a class="navbar-brand fuente" href="http://localhost:3000">3 Degrees</a>
 
           <div class="nav navbar-nav pull-xs-right">
-            <% if organization_signed_in? %>
-                <form class="form-inline">
-                  <%= link_to "Edit profile", edit_organization_registration_path, class: "btn btn-outlineprimary" %> 
-                  <%= link_to "Sign out", destroy_organization_session_path, method: :delete, class: "btn btn-outline-danger" %>
-                </form>
-              <% else %>
-                <form class="form-inline">
-                  <%= link_to "Acceder", new_organization_session_path, class: "btn btn-outline-primary" %> 
-                  <%= link_to "Registrarse", new_organization_registration_path, class: "btn btn-outline-secondary" %>
-                </form>
-              <% end %>
+              <form class="form-inline">
+                  <%= link_to "Voluntariados", projects_path, class: "btn" %> 
+                  <%= link_to "Organizaciones", organizaciones_path, class: "btn" %> 
+                  <%= link_to "¿Cómo funciona?", como_funciona_path, class: "btn" %> 
+                  &nbsp;
+                  <% if organization_signed_in? %>
+                    <%= link_to "Edit profile", edit_organization_registration_path, class: "btn btn-outline-primary" %> 
+                    &nbsp;
+                    <%= link_to "Sign out", destroy_organization_session_path, method: :delete, class: "btn btn-outline-danger" %>
+                
+                  <% else %>
+                    <%= link_to "Acceder", new_organization_session_path, class: "btn btn-outline-primary" %> 
+                    &nbsp;
+                    <%= link_to "Registrarse", new_organization_registration_path, class: "btn btn-outline-secondary" %>
+                  <% end %>
+              </form>
           </div>   
     </nav>
 

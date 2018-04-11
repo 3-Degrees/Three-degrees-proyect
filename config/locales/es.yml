@@ -27,6 +27,7 @@ es:
         updated_at: Fecha de actualización
     models:
       user: Usuario
+      project: proyecto
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
