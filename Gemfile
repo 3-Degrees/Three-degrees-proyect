@@ -84,3 +84,9 @@ gem 'bootstrap', '~> 4.0.0'
 
 # Font Awesome
 gem 'font-awesome-rails'
+
+gem 'fog-ovirt', '1.0.0'
+
+# Fog
+gem 'fog'
+
