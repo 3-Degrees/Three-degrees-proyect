@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
   def all_organization_projects
     @organization= Organization.find(params[:id])
 
-    @projects= @organization.projects.order(deadline: :desc)
+    @projects= @organization.projects.order(deadline: :desc).page(params[:page])
   end
 
 
