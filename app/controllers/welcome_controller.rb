@@ -11,9 +11,15 @@ class WelcomeController < ApplicationController
   end
 
   def profile
-    @organization= Organization.find_by(params[:id])
+    @organization= Organization.find(params[:id])
 
-    @projects= Project.all
+    @projects= @organization.projects.order(created_at: :desc).limit(4)
+  end
+
+  def all_organization_projects
+    @organization= Organization.find(params[:id])
+
+    @projects= @organization.projects.order(deadline: :desc)
   end
 
 

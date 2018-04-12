@@ -11,4 +11,12 @@ class Organization < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  def short_entry
+    if mission.length > 120
+       mission[0..120] + "..."
+    else
+        mission
+    end
+  end
+
 end

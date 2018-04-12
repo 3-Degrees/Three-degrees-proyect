@@ -4,10 +4,12 @@
     <div class="card-deck">
         <% @organizations.each do |organization| %>           
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" <%= image_tag organization.avatar.url, alt: "Avatar de la organización" if organization.avatar.url %>
+                <%= link_to perfil_organizacion_path(id: organization.id) do %>
+                    <%= image_tag organization.avatar.url, alt: "Avatar de la organización", class: "card-img-top" if organization.avatar.url %>
+                <% end %>
                 <div class="card-body">
                     <h5 class="card-title"><%= link_to organization.name, perfil_organizacion_path(id: organization.id) %></h5>
-                    <p class="card-text"><%= organization.mission %></p>
+                    <p class="card-text"><%= organization.short_entry %><%= link_to "leer más", perfil_organizacion_path(id: organization.id) if organization.mission.length>120 %></p>
                     <p class="card-text text-muted"><%= fa_icon "map-marker" %> <%= organization.location %></p>
                 </div>
             </div>  

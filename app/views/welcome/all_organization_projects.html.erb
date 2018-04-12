@@ -1,8 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1 class="display-4 text-center">Proyectos de voluntariado</h1>
-<hr><br>
-
 <div class="row align-items-center">
   <div class="card-deck">
     <% @projects.each do |project| %>
@@ -21,16 +16,3 @@
     <% end %>
   </div>
 </div>
-
-<br>
-
-<div>
-  <%= paginate @projects %></p>
-</div>
-
-<% if organization_signed_in? %>
-  <%= link_to 'Nuevo proyecto', new_project_path %>
-<% else %>
-  <%= link_to 'Inicia sesión para crear un nuevo proyecto', new_project_path %>
-<% end %>
-<br><br>

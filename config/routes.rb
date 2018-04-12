@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get 'como_funciona' => 'welcome#about'
   get 'organizaciones' => 'welcome#organizations'
   get 'perfil_organizacion/:id' => 'welcome#profile', as: 'perfil_organizacion'
+  get 'perfil_organizacion/:id/proyectos' => 'welcome#all_organization_projects', as: 'all_organization_projects'
 
   get 'projects/:id/solicitudes' => 'projects#show_requests', as: 'show_requests'
+
+  
 
   devise_for :organizations
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
