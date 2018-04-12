@@ -30,9 +30,7 @@
 
 
 <hr>
-<div class="row">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    
+<div class="row">    
     <div class="row align-items-center">
         <div class="card-deck">
             <% @projects.each do |project| %>
@@ -42,29 +40,18 @@
                     <h5 class="card-title"><%= link_to project.title, project %></h5>
                     <p class="card-text"><%= project.short_entry %>
                     <p class="card-text"><small><%= link_to project.organization.name, perfil_organizacion_path(id: project.organization.id) %></small></p>
-                    <p class="card-text"><small class="text-muted"><%= project.location %></small></p>
+                    <p class="card-text text-muted"><%= fa_icon "map-marker" %> <%= project.location %></p>
                     <p class="card-text"><small class="text-muted">Fecha del proyecto: <%= project.project_date %></small></p>
                     </div>
                 </div>
             <% end %>
         </div>
-    </div>
-    
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    </div>
+    </div> 
 </div>
-
-    <% if organization_signed_in? %>
-            
-        <td><%= link_to 'Edit', edit_organization_registration_path(@organization) %></td>
-            
-    <% end %>|
-    <%= link_to 'Back', organizaciones_path %>
-</div>
+<br><br>
+<% if organization_signed_in? %>        
+    <td><%= link_to 'Edit', edit_organization_registration_path(@organization) %></td>          
+<% end %>|
+        
+<%= link_to 'Back', organizaciones_path %>
+<br><br>

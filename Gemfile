@@ -76,3 +76,6 @@ gem 'kaminari-i18n'
 
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0'
+
+# Font Awesome
+gem 'font-awesome-rails'

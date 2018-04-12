@@ -3,22 +3,20 @@
 <% if organization_signed_in? && current_organization == @project.organization %>
     <%= render 'tabs', active: 2 %>
     <br>
-    <br>
-    <div class="row align-items-center">
+    <br>    
         <div class="card-deck">
-            <% @project.requests.each do |request| %>
-                <div class="card" style="18-rem">
+            <div class="card">
+                <% @project.requests.each do |request| %>                  
                     <div class="card-body">
                         <h5 class="card-title"><%= request.name %></h5>
                         <p class="card-text"><%= request.phone %> || <%= request.email %></p>
                         <p class="card-text">Lugar de residencia: <%= request.location %></p>
                         <p class="card-text">Edad: <%= request.age %> años</p>
                         <p class="card-text">Motivo del interés por el proyecto: "<%= request.reason %>"</p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-    </div>
+                    </div>                   
+                <% end %>
+            </div>
+        </div>   
 <% else %>
     <p>No tienes permiso para ver las solicitudes a proyectos de otras organizaciones</p>
 <% end %>

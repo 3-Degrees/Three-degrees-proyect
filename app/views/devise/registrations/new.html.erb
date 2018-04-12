@@ -1,55 +1,62 @@
-<h2><%= t('.sign_up') %></h2>
+<div class="container-fluid m-5">
+  <div class="row justify-content-center m-4">
+    <div class="col-md-4 col-lg-4">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <h2><%= t('.sign_up') %></h2>
+      <hr>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <div class="field">
+          <%= f.label :nombre %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :misión %><br />
+          <%= f.text_area :mission, autofocus: true, autocomplete: "mission" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :ubicación %><br />
+          <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :página_web_de_tu_organización %><br />
+          <%= f.text_field :web, autofocus: true, autocomplete: "location" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :correo_electrónico %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :contraseña %>
+          <% if @minimum_password_length %>
+          <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :repetir_contraseña %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="form-group">
+            <p>Añade el logo de tu organización:</p>
+            <%= f.file_field :avatar %>
+        </div>
+
+        <br>
+        <div class="actions">
+          <%= f.submit t('.sign_up') %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :misión %><br />
-    <%= f.text_area :mission, autofocus: true, autocomplete: "mission" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ubicación %><br />
-    <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :página_web_de_tu_organización %><br />
-    <%= f.text_field :web, autofocus: true, autocomplete: "location" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :correo_electrónico %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contraseña %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :repetir_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="form-group">
-      <strong>Añade el logo de tu organización:</strong>
-      <%= f.file_field :avatar %>
-  </div>
-
-  <br>
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

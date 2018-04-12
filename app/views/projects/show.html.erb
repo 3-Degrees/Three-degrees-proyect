@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'tabs', active: 1 %>
-
+<br>
 <div class="row">
     <div class="col-md-5">
-    <%= image_tag @project.image.url, alt: "Imagen del proyecto" if @project.image.url %>
+      <%= image_tag @project.image.url, alt: "Imagen del proyecto", size: 300 if @project.image.url %>
     </div>
 
     <div class="col-md-5 align-self-center">
@@ -72,17 +72,58 @@
 <br>
 
 <% unless organization_signed_in? %>
-  <h4>¿Quieres participar en este proyecto?</h4>
+
+  <h4 class="text-center">¿Quieres participar en este proyecto?</h4>
   <br>
+
   <%= form_tag request_save_path do %>
-    <%= text_field_tag :name, nil, placeholder: "Tu nombre" %><br />
-    <%= number_field_tag :age, nil, placeholder: "Tu edad" %><br />
-    <%= text_field_tag :location, nil, placeholder: "Tu lugar de residencia" %><br />
-    <%= text_field_tag :email, nil, placeholder: "Tu correo" %><br />
-    <%= text_field_tag :phone, nil, placeholder: "Tu teléfono" %><br />
-    <%= text_area_tag :reason, nil, placeholder: "¿Por qué estás interesado en unirte a este proyecto?" %><br />
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tu nombre:</label>
+      <div class="col-sm-10">
+        <%= text_field_tag :name, nil, placeholder: "Nombre", class: "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tu edad:</label>
+      <div class="col-sm-10">
+        <%= number_field_tag :age, nil, placeholder: "Edad" , class: "form-control"%><br />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tu ubicación:</label>
+      <div class="col-sm-10">
+        <%= text_field_tag :location, nil, placeholder: "Ubicación", class: "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tu dirección de correo electrónico:</label>
+      <div class="col-sm-10">
+        <%= text_field_tag :email, nil, placeholder: "Email", class: "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tu teléfono:</label>
+      <div class="col-sm-10">
+        <%= text_field_tag :phone, nil, placeholder: "Tu teléfono", class: "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Comentanos por qué estás interesado en participar en este proyecto:</label>
+      <div class="col-sm-10">
+        <%= text_field_tag :reason, nil, placeholder: "Motivo de tu interés", class: "form-control" %><br />
+      </div>
+    </div>
+
     <%= hidden_field_tag :project_id, @project.id %><br />
+
     <%= submit_tag "Enviar solicitud" %>
+    
   <% end %>
 <% end %>
+
 <br><br><br>

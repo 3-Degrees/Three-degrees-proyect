@@ -3,6 +3,8 @@ class Project < ApplicationRecord
 
     has_many :requests
 
+    paginates_per 4
+
      mount_uploader :image, ImageUploader
 
     def short_entry

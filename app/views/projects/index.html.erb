@@ -12,8 +12,8 @@
               <h5 class="card-title"><%= link_to project.title, project %></h5>
               <p class="card-text"><%= project.short_entry %><%= link_to "leer más", project if project.description.length>120 %></p>
               <p class="card-text"><small><%= link_to project.organization.name, perfil_organizacion_path(id: project.organization.id) %></small></p>
-              <p class="card-text"><small class="text-muted"><%= project.location %></small></p>
-              <p class="card-text"><small class="text-muted">Fecha del proyecto: <%= project.project_date %></small></p>
+              <p class="card-text text-muted"><%= fa_icon "map-marker" %> <%= project.location %></p>
+              <p class="card-text text-muted"><small>Fecha del proyecto: <%= project.project_date %></small></p>
             </div>
           </div>
     <% end %>
@@ -21,6 +21,10 @@
 </div>
 
 <br>
+
+<div>
+  <%= paginate @projects %></p>
+</div>
 
 <% if organization_signed_in? %>
   <%= link_to 'Nuevo proyecto', new_project_path %>

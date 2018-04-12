@@ -12,13 +12,15 @@
  *
  */
  @import "bootstrap";
-
- .fondo {
+ @import "font-awesome";
+ 
+ 
+.fondo {
     background-image: url('/voluntariado.png');
     background-repeat: no-repeat;
     background-size: 100%;
- }
+}
 
- .fuente {
+.fuente {
     font-family: 'Poppins', sans-serif;
- }
+}
